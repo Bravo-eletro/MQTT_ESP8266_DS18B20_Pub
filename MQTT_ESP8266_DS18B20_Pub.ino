@@ -1,6 +1,6 @@
 //--------------
 // Tested ESP8266 OLED Display 128 x 64 MQTT publish and subscriber.
-// code written on : 2/05/2024
+
 
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
@@ -11,15 +11,15 @@
 #include <Adafruit_GFX.h>
 
 // Wi-Fi credentials
-const char* ssid = "Swapnonil"; // Swapnonil // Chakra_nssv
-const char* password = "$ubho&$hreya"; //$ubho&$hreya // Coron@Virus$19 
+const char* ssid = "YOUR SSID"; // Put your wifi router ssid
+const char* password = "YOUR PASSWORD"; // put your wifi router password
 
 // MQTT broker details
-const char* mqtt_server = "192.168.0.119"; // Raspberry Pi IP Address
-const int mqtt_port = 1883;
+const char* mqtt_server = "PUT Server IP Address"; // Raspberry Pi IP Address
+const int mqtt_port = 1883; // MQTT default communication PORT
 const char* mqtt_topic = "sensor/temperature";
-const char* mqtt_username = "subha";
-const char* mqtt_password = "123456789";
+const char* mqtt_username = "Put Your MQTT Broker Username"; 
+const char* mqtt_password = "Put Your MQTT Broker Password ";
 
 // OneWire setup
 const int oneWireBus = 14; // D5 : GPIO 14 pin connected to DS18B20
@@ -75,7 +75,7 @@ void setup() {
   setupMQTT();
   sensors.begin();
 
-  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { // check the I2C address of OLED
     Serial.println("SSD1306 initialization failed.");
     while (true);
   }
